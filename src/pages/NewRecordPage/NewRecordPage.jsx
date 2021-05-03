@@ -79,7 +79,6 @@ export default function NewOrderPage({ handleAddRecord, user }) {
             <option value="false">False</option>
           </select>
         </div>
-        {true && (
           <div>
             <label>Condition: </label>
             <select
@@ -95,7 +94,6 @@ export default function NewOrderPage({ handleAddRecord, user }) {
               <option value="Poor">Poor</option>
             </select>
           </div>
-        )}
         <div>
           <label>Price (US$): </label>
           <input
