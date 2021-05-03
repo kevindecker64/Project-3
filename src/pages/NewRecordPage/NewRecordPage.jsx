@@ -37,36 +37,76 @@ export default function NewOrderPage({ handleAddRecord, user }) {
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Record Title: </label>
-          <input name="title" placeholder="--Record Title--" value={formData.title} onChange={handleChange} required/>
+          <input
+            name="title"
+            placeholder="--Record Title--"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Artist Name: </label>
-          <input name="artist" placeholder="--Artist Name--" value={formData.artist} onChange={handleChange} required/>
+          <input
+            name="artist"
+            placeholder="--Artist Name--"
+            value={formData.artist}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Year: </label>
-          <input type="number" min="1948" max="2021" name="year" value={formData.year} onChange={handleChange} required/>
+          <input
+            type="number"
+            min="1948"
+            max="2021"
+            name="year"
+            value={formData.year}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>For Sale: </label>
-          <select name="forSale" value={formData.forSale} onChange={handleChange} required>
+          <select
+            name="forSale"
+            value={formData.forSale}
+            onChange={handleChange}
+            required
+          >
             <option value="true">True</option>
             <option value="false">False</option>
           </select>
         </div>
-        <div>
-          <label>Condition: </label>
-          <select name="condition" value={formData.condition} onChange={handleChange} required>
-            <option value="Mint">Mint</option>
-            <option value="Very Good">Very Good</option>
-            <option value="Good">Good</option>
-            <option value="Meh">Meh</option>
-            <option value="Poor">Poor</option>
-          </select>
-        </div>
+        {true && (
+          <div>
+            <label>Condition: </label>
+            <select
+              name="condition"
+              value={formData.condition}
+              onChange={handleChange}
+              required
+            >
+              <option value="Mint">Mint</option>
+              <option value="Very Good">Very Good</option>
+              <option value="Good">Good</option>
+              <option value="Meh">Meh</option>
+              <option value="Poor">Poor</option>
+            </select>
+          </div>
+        )}
         <div>
           <label>Price (US$): </label>
-          <input type="number" min="0" name="price" value={formData.price} onChange={handleChange} required/>
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            required
+          />
         </div>
         <button type="submit" disabled={invalidForm}>
           POST RECORD

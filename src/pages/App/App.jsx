@@ -32,7 +32,13 @@ export default function App() {
 
   async function handleAddRecord(newRecordData) {
     const newRecord = await recordsAPI.create(newRecordData);
+    console.log(newRecord);
     setRecords([...records, newRecord]);
+  }
+
+  async function handleDeleteRecord(id) {
+    await recordsAPI.deleteOne(id);
+    setRecords(records.filter((rec) => rec._id !== id));
   }
 
   return (
@@ -45,7 +51,11 @@ export default function App() {
               <NewRecordPage handleAddRecord={handleAddRecord} user={user} />
             </Route>
             <Route exact path="/">
-              <RecordIndexPage records={records} />
+              <RecordIndexPage
+                records={records}
+                handleDeleteRecord={handleDeleteRecord}
+                user={user}
+              />
             </Route>
             <Redirect to="/" />
           </Switch>

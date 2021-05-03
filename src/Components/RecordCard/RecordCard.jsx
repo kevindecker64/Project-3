@@ -1,25 +1,36 @@
 import React from "react";
 
-export default function RecordCard({ record }) {
+export default function RecordCard({ record, handleDeleteRecord, user }) {
   return (
-      <>
+    <>
+      <div>
         <div>
-            <div>
-                <h2>{record.title}</h2>
-                <h3>{record.artist} | {record.year}</h3>
-            </div>
-            {record.forSale ? (
-                <>
-                <div>FOR SALE<button>Show/Hide</button></div>
-                {/* Click FOR SALE button to show/hide bleow info */}
-                <div>Condition: {record.condition} Price: ${record.price}</div>
-                <div>Seller: {record.sellerName}</div>
-                <div>{record.sellerInfo.email} | {record.sellerInfo.phoneNum}</div>
-                </>
-            ) : (
-                <div>Not For Sale</div>
-            )}
+          <h2>{record.title}</h2>
+          <h3>
+            {record.artist} | {record.year}
+          </h3>
         </div>
-      </>
-  )
+        {record.forSale ? (
+          <>
+            <div>
+              FOR SALE<button>Show/Hide</button>
+            </div>
+            {/* Click FOR SALE button to show/hide bleow info */}
+            <div>
+              Condition: {record.condition} Price: ${record.price}
+            </div>
+            <div>Seller: {record.sellerName}</div>
+            <div>
+              {record.sellerInfo.email} | {record.sellerInfo.phoneNum}
+            </div>
+          </>
+        ) : (
+          <div>Not For Sale</div>
+        )}
+        {record.sellerName === user.name && (
+          <button onClick={() => handleDeleteRecord(record._id)}>DELETE</button>
+        )}
+      </div>
+    </>
+  );
 }

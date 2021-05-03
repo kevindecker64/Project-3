@@ -3,6 +3,7 @@ const Record = require("../../models/record");
 module.exports = {
   index,
   create,
+  delete: deleteOne,
 };
 
 async function index(req, res) {
@@ -11,6 +12,11 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  const record = Record.create(req.body);
+  const record = await Record.create(req.body);
   res.status(201).json(record);
+}
+
+async function deleteOne(req, res) {
+  const deletedRecord = await Record.findByIdAndRemove(req.params.id);
+  res.status(200).json(deletedRecord);
 }
