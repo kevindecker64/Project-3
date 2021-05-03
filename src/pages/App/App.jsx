@@ -49,6 +49,7 @@ export default function App() {
             </Route>
             <Redirect to="/" />
           </Switch>
+          <hr />
           <button onClick={testSomething}>Test Something</button>
         </>
       ) : (
