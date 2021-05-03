@@ -7,6 +7,7 @@ export default class SignUpForm extends Component {
 		this.state = {
 			name: '',
 			email: '',
+			phoneNum: '',
 			password: '',
 			confirm: '',
 			error: '',
@@ -67,6 +68,14 @@ export default class SignUpForm extends Component {
 							type='text'
 							name='email'
 							value={this.state.email}
+							onChange={this.handleChange}
+							required
+						/>
+						<label>Phone Number</label>
+						<input
+							type='text'
+							name='phoneNum'
+							value={this.state.phoneNum}
 							onChange={this.handleChange}
 							required
 						/>

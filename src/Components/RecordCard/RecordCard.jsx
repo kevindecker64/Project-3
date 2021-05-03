@@ -10,7 +10,8 @@ export default function RecordCard({ record }) {
             </div>
             {record.forSale ? (
                 <>
-                <div>FOR SALE</div>
+                <div>FOR SALE<button>Show/Hide</button></div>
+                {/* Click FOR SALE button to show/hide bleow info */}
                 <div>Condition: {record.condition} Price: ${record.price}</div>
                 <div>Seller: {record.sellerName}</div>
                 <div>{record.sellerInfo.email} | {record.sellerInfo.phoneNum}</div>

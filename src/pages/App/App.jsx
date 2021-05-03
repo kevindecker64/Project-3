@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as recordsAPI from "../../utilities/records-api";
 import AuthPage from "../AuthPage/AuthPage";
@@ -11,23 +11,16 @@ import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [records, setRecords] = useState([
-    {
-      title: "Black Sabbath",
-      artist: "Black Sabbath",
-      year: 1976,
-      forSale: true,
-      condition: "Very Good",
-      price: 6.66,
-      sellerName: "Test McTest",
-      sellerInfo: { email: "test@test.com", phoneNum: "222-222-2222" },
-    }, {
-      title: "One Night Stand - Live at the Harlem Square Club",
-      artist: "Sam Cooke",
-      year: 1963,
-      forSale: false,
-    }
-  ]);
+  const [records, setRecords] = useState([]);
+  const history = useHistory();
+
+  async function testSomething() {
+    console.log("HEELLLOOOO!!!!!");
+  }
+
+  useEffect(() => {
+    history.push("/");
+  }, [records, history]);
 
   useEffect(() => {
     async function getRecords() {
@@ -37,6 +30,11 @@ export default function App() {
     getRecords();
   }, []);
 
+  async function handleAddRecord(newRecordData) {
+    const newRecord = await recordsAPI.create(newRecordData);
+    setRecords([...records, newRecord]);
+  }
+
   return (
     <main className="App">
       {user ? (
@@ -44,13 +42,14 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route exact path="/add">
-              <NewRecordPage />
+              <NewRecordPage handleAddRecord={handleAddRecord} user={user} />
             </Route>
             <Route exact path="/">
               <RecordIndexPage records={records} />
             </Route>
             <Redirect to="/" />
           </Switch>
+          <button onClick={testSomething}>Test Something</button>
         </>
       ) : (
         <AuthPage setUser={setUser} />
