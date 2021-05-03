@@ -6,6 +6,7 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn");
 router.get("/", recordsCtrl.index);
 router.get("/:id", recordsCtrl.show);
 router.post("/", recordsCtrl.create);
+router.put("/:id", recordsCtrl.update);
 router.delete("/:id", recordsCtrl.delete);
 
 module.exports = router;

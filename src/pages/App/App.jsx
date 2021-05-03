@@ -7,6 +7,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import NewRecordPage from "../NewRecordPage/NewRecordPage";
 import RecordIndexPage from "../RecordIndexPage/RecordIndexPage";
 import RecordDetailsPage from "../RecordDetailsPage/RecordDetailsPage";
+import EditRecordPage from "../EditRecordPage/EditRecordPage";
 
 import "./App.css";
 
@@ -37,6 +38,14 @@ export default function App() {
     setRecords([...records, newRecord]);
   }
 
+  async function handleUpdateRecord(updatedRecordData) {
+    const updatedRecord = await recordsAPI.update(updatedRecordData);
+    const newRecordsArray = records.map((rec) =>
+      rec._id === updatedRecordData._id ? updatedRecord : rec
+    );
+    setRecords(newRecordsArray);
+  }
+
   async function handleDeleteRecord(id) {
     await recordsAPI.deleteOne(id);
     setRecords(records.filter((rec) => rec._id !== id));
@@ -60,6 +69,9 @@ export default function App() {
             </Route>
             <Route exact path="/details">
               <RecordDetailsPage />
+            </Route>
+            <Route exact path="/edit">
+              <EditRecordPage handleUpdateRecord={handleUpdateRecord} />
             </Route>
             <Redirect to="/" />
           </Switch>

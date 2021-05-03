@@ -4,6 +4,7 @@ module.exports = {
   index,
   create,
   show,
+  update,
   delete: deleteOne,
 };
 
@@ -20,6 +21,17 @@ async function create(req, res) {
 async function show(req, res) {
   const record = await Record.findById(req.params.id);
   res.status(200).json();
+}
+
+async function update(req, res) {
+  const updatedRecord = await Record.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+  res.status(200).json(updatedRecord);
 }
 
 async function deleteOne(req, res) {
