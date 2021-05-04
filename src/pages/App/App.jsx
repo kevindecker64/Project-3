@@ -18,6 +18,7 @@ export default function App() {
 
   async function testSomething() {
     console.log("HEELLLOOOO!!!!!");
+    console.log(records, user);
   }
 
   useEffect(() => {

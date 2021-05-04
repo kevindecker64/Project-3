@@ -5,7 +5,7 @@ export default function RecordDetailsCard({ record }) {
   return (
     <>
       <div>
-        <h2>{record.name}</h2>
+        <h2>{record.title}</h2>
         <h3>
           {record.artist} | {record.year}
         </h3>

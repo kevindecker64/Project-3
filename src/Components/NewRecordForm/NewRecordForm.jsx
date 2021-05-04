@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 export default function NewOrderPage({ handleAddRecord, user }) {
   const [invalidForm, setValidForm] = useState(true);
   const [formData, setFormData] = useState({
+    userId: user._id,
     title: "",
     artist: "",
     year: 1976,
