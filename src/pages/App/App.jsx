@@ -71,7 +71,9 @@ export default function App() {
               <RecordDetailsPage />
             </Route>
             <Route exact path="/edit">
-              <EditRecordPage handleUpdateRecord={handleUpdateRecord} />
+              <EditRecordPage
+                handleUpdateRecord={handleUpdateRecord}
+              />
             </Route>
             <Redirect to="/" />
           </Switch>

@@ -11,7 +11,10 @@ export default function EditRecordPage(props) {
   return (
     <>
       <h1>Edit Record Page</h1>
-      <EditRecordForm record={record} key={record._id} />
+      <EditRecordForm
+        key={record._id}
+        handleUpdateRecord={props.handleUpdateRecord}
+      />
       <Link to="/">CANCEL</Link>
     </>
   );

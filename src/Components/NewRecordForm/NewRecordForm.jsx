@@ -33,7 +33,6 @@ export default function NewOrderPage({ handleAddRecord, user }) {
 
   return (
     <>
-      <h1>NewRecordPage</h1>
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Record Title: </label>
@@ -59,8 +58,8 @@ export default function NewOrderPage({ handleAddRecord, user }) {
           <label>Year: </label>
           <input
             type="number"
-            min="1948"
-            max="2021"
+            min="1898"
+            max={new Date().getFullYear()}
             name="year"
             value={formData.year}
             onChange={handleChange}
@@ -79,21 +78,21 @@ export default function NewOrderPage({ handleAddRecord, user }) {
             <option value="false">False</option>
           </select>
         </div>
-          <div>
-            <label>Condition: </label>
-            <select
-              name="condition"
-              value={formData.condition}
-              onChange={handleChange}
-              required
-            >
-              <option value="Mint">Mint</option>
-              <option value="Very Good">Very Good</option>
-              <option value="Good">Good</option>
-              <option value="Meh">Meh</option>
-              <option value="Poor">Poor</option>
-            </select>
-          </div>
+        <div>
+          <label>Condition: </label>
+          <select
+            name="condition"
+            value={formData.condition}
+            onChange={handleChange}
+            required
+          >
+            <option value="Mint">Mint</option>
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Meh">Meh</option>
+            <option value="Poor">Poor</option>
+          </select>
+        </div>
         <div>
           <label>Price (US$): </label>
           <input
