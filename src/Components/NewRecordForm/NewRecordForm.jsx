@@ -34,7 +34,7 @@ export default function NewRecordForm({ handleAddRecord, user }) {
 
   return (
     <>
-      <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+      <form className='form' autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Record Title: </label>
           <input
@@ -109,6 +109,7 @@ export default function NewRecordForm({ handleAddRecord, user }) {
         <button type="submit" disabled={invalidForm}>
           POST RECORD
         </button>
+        &nbsp;
       </form>
     </>
   );

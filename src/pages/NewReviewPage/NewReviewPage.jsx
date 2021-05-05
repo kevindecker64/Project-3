@@ -7,11 +7,6 @@ export default function NewReviewPage({ user, handleAddReview }) {
     state: { record },
   } = useLocation();
 
-  async function checkState() {
-    console.log(record);
-    console.log(user);
-  }
-
   return (
     <>
       <h1>New Review Page</h1>
@@ -21,7 +16,6 @@ export default function NewReviewPage({ user, handleAddReview }) {
         record={record}
       />
       <Link to="/">CANCEL</Link>
-      <button onClick={checkState}>Check State</button>
     </>
   );
 }

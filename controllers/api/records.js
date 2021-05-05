@@ -1,4 +1,5 @@
 const Record = require("../../models/record");
+const Review = require("../../models/review");
 
 module.exports = {
   index,
@@ -19,9 +20,21 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-  const record = await Record.findById(req.params.id);
-  res.status(200).json();
+  await Record.findById(req.params.id)
+    .populate("ratings")
+    .exec(function (err, record) {
+      Review.find({ _id: { $nin: record.ratings } }, function (err, ratings) {
+        console.log(ratings);
+        res.status(200).json();
+      });
+    });
 }
+// async function show(req, res) {
+//   const record = await Record.findById(req.params.id);
+//   record.ratings.populate("Review").exec(function (err) {
+//     res.status(200).json();
+//   });
+// }
 
 async function update(req, res) {
   const updatedRecord = await Record.findByIdAndUpdate(

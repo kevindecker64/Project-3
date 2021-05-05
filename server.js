@@ -9,7 +9,7 @@ require("dotenv").config();
 require("./config/database");
 
 const recordsRouter = require("./routes/api/records");
-const reviewsRouter = require("./routes/api/reviews");
+// const reviewsRouter = require("./routes/api/reviews");
 
 const app = express();
 
@@ -35,7 +35,7 @@ app.listen(port, function () {
 
 //api routes will go here
 app.use("/api/records", recordsRouter);
-app.use("/api/reviews", reviewsRouter);
+// app.use("/api/reviews", reviewsRouter);
 
 // app.use('/api/users', require('./routes/api/users'))
 app.use("/api/users", require("./routes/api/users"));

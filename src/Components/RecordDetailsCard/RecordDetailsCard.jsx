@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 
 export default function RecordDetailsCard({ record }) {
   return (
     <>
-      <div>
+      <div className="record-detail-card">
         <h2>{record.title}</h2>
         <h3>
           {record.artist} | {record.year}
@@ -23,10 +22,9 @@ export default function RecordDetailsCard({ record }) {
         ) : (
           <h4>Not For Sale</h4>
         )}
-        <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
         &nbsp;
-        <Link to='/'>RETURN TO LIST</Link>
       </div>
+
     </>
   );
 }

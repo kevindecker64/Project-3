@@ -1,11 +1,16 @@
 const Review = require("../../models/review");
+const Record = require("../../models/record");
 
 module.exports = {
+  index,
   create,
 };
 
+async function index(req, res){}
+
 async function create(req, res) {
-  console.log("You Made it to the Controller");
   const review = await Review.create(req.body);
-  res.status(201).json(review);
+  const record = await Record.findById(req.body.recordId);
+  record.ratings.push(review._id);
+  record.save().then(res.status(201).json(record));
 }

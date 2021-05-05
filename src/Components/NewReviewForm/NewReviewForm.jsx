@@ -6,6 +6,7 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
     userId: user._id,
     userName: user.name,
     recordId: record._id,
+    recordInfo: { title: record.title, artist: record.artist },
     rating: 3,
     review: "",
   });
@@ -27,11 +28,6 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
     evt.preventDefault();
     handleAddReview(formData);
   };
-
-  function checkReview() {
-    console.log("--- Review Form Data (NewReviewForm) ---");
-    console.log(formData);
-  }
 
   return (
     <>
@@ -61,7 +57,6 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
           POST REVIEW
         </button>
       </form>
-      <button onClick={checkReview}>Check Review Data</button>
     </>
   );
 }

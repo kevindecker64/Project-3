@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import RecordDetailsCard from "../../Components/RecordDetailsCard/RecordDetailsCard";
+import ReviewsCard from "../../Components/ReviewsCard/ReviewsCard";
 
 export default function RecordDetailsPage(props) {
   const {
@@ -10,7 +12,17 @@ export default function RecordDetailsPage(props) {
   return (
     <>
       <h1>Record Details</h1>
-      <RecordDetailsCard record={record} key={record._id} />
+      <div className="record-detail-page">
+        <RecordDetailsCard record={record} key={record._id} />
+        <hr />
+        <ReviewsCard record={record} />
+      </div>
+      &nbsp;
+      <div>
+        <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
+        &nbsp;
+        <Link to="/">RETURN TO LIST</Link>
+      </div>
     </>
   );
 }

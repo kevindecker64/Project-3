@@ -5,6 +5,7 @@ const reviewSchema = new Schema({
   userId: { type: String },
   userName: { type: String },
   recordId: { type: String },
+  recordInfo: { title: { type: String }, artist: { type: String } },
   rating: { type: Number },
   review: { type: String },
 });

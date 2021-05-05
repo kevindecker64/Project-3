@@ -25,3 +25,11 @@ export function deleteOne(id) {
     method: "DELETE",
   }).then((res) => res.json());
 }
+
+export function review(review) {
+  return fetch(`${BASE_URL}/${review.recordId}/reviews`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(review),
+  }).then((res) => res.json());
+}

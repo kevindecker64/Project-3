@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as recordsAPI from "../../utilities/records-api";
-import * as reviewsAPI from "../../utilities/reviews-api";
+// import * as reviewsAPI from "../../utilities/reviews-api";
 import NavBar from "../../Components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewRecordPage from "../NewRecordPage/NewRecordPage";
@@ -21,7 +21,7 @@ export default function App() {
 
   async function testSomething() {
     console.log("HEELLLOOOO!!!!!");
-    // console.log(records, user);
+    console.log(user);
   }
 
   useEffect(() => {
@@ -38,7 +38,6 @@ export default function App() {
 
   async function handleAddRecord(newRecordData) {
     const newRecord = await recordsAPI.create(newRecordData);
-    console.log(newRecord);
     setRecords([...records, newRecord]);
   }
 
@@ -56,19 +55,15 @@ export default function App() {
   }
 
   async function handleAddReview(newReviewData) {
-    console.log("--- handleAddReview (App.jsx) ---");
-    console.log(newReviewData);
-    const newReview = await reviewsAPI.create(newReviewData);
-    console.log("--- newReview (App.jsx) ---");
-    console.log(newReview);
+    const newReview = await recordsAPI.review(newReviewData);
     setReviews([...reviews, newReview]);
   }
 
   return (
     <main className="App">
+      <NavBar user={user} setUser={setUser} />
       {user ? (
         <>
-          <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route exact path="/">
               <RecordIndexPage
@@ -91,12 +86,13 @@ export default function App() {
             </Route>
             <Redirect to="/" />
           </Switch>
+          &nbsp;
           <hr />
-          <button onClick={testSomething}>Test Something</button>
         </>
       ) : (
         <AuthPage setUser={setUser} />
       )}
+      <button onClick={testSomething}>Test Something</button>
     </main>
   );
 }
