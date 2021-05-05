@@ -2,23 +2,26 @@ import { useEffect, useState } from "react";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as recordsAPI from "../../utilities/records-api";
+import * as reviewsAPI from "../../utilities/reviews-api";
 import NavBar from "../../Components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewRecordPage from "../NewRecordPage/NewRecordPage";
 import RecordIndexPage from "../RecordIndexPage/RecordIndexPage";
 import RecordDetailsPage from "../RecordDetailsPage/RecordDetailsPage";
 import EditRecordPage from "../EditRecordPage/EditRecordPage";
+import NewReviewPage from "../NewReviewPage/NewReviewPage";
 
 import "./App.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [records, setRecords] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const history = useHistory();
 
   async function testSomething() {
     console.log("HEELLLOOOO!!!!!");
-    console.log(records, user);
+    // console.log(records, user);
   }
 
   useEffect(() => {
@@ -52,6 +55,15 @@ export default function App() {
     setRecords(records.filter((rec) => rec._id !== id));
   }
 
+  async function handleAddReview(newReviewData) {
+    console.log("--- handleAddReview (App.jsx) ---");
+    console.log(newReviewData);
+    const newReview = await reviewsAPI.create(newReviewData);
+    console.log("--- newReview (App.jsx) ---");
+    console.log(newReview);
+    setReviews([...reviews, newReview]);
+  }
+
   return (
     <main className="App">
       {user ? (
@@ -72,9 +84,10 @@ export default function App() {
               <RecordDetailsPage />
             </Route>
             <Route exact path="/edit">
-              <EditRecordPage
-                handleUpdateRecord={handleUpdateRecord}
-              />
+              <EditRecordPage handleUpdateRecord={handleUpdateRecord} />
+            </Route>
+            <Route exact path="/review">
+              <NewReviewPage handleAddReview={handleAddReview} user={user} />
             </Route>
             <Redirect to="/" />
           </Switch>

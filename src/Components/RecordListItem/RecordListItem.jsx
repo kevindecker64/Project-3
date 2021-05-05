@@ -12,6 +12,8 @@ export default function RecordListItem({ record, handleDeleteRecord, user }) {
         <div>
           <Link to={{ pathname: "/details", state: { record } }}>DETAILS</Link>
           &nbsp;
+          <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
+          &nbsp;
           {record.userId === user._id && (
             <>
               <Link to={{ pathname: "/edit", state: { record } }}>EDIT</Link>

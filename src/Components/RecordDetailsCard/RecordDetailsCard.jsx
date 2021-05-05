@@ -23,6 +23,8 @@ export default function RecordDetailsCard({ record }) {
         ) : (
           <h4>Not For Sale</h4>
         )}
+        <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
+        &nbsp;
         <Link to='/'>RETURN TO LIST</Link>
       </div>
     </>
