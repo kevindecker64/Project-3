@@ -6,11 +6,11 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn"); // add to routes 
 
 
 router.get("/", recordsCtrl.index);
-router.post("/", recordsCtrl.create);
+router.post("/", ensureLoggedIn, recordsCtrl.create);
 router.get("/:id", recordsCtrl.show);
-router.post("/:id/reviews", reviewsCtrl.create);
-router.put("/:id", recordsCtrl.update);
-router.delete("/:id", recordsCtrl.delete);
+router.post("/:id/reviews", ensureLoggedIn, reviewsCtrl.create);
+router.put("/:id", ensureLoggedIn, recordsCtrl.update);
+router.delete("/:id", ensureLoggedIn, recordsCtrl.delete);
 
 
 module.exports = router;
