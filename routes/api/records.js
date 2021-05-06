@@ -12,5 +12,4 @@ router.post("/:id/reviews", ensureLoggedIn, reviewsCtrl.create);
 router.put("/:id", ensureLoggedIn, recordsCtrl.update);
 router.delete("/:id", ensureLoggedIn, recordsCtrl.delete);
 
-
 module.exports = router;

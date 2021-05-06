@@ -16,7 +16,7 @@ export default function ReviewsCard({ record }) {
   return (
     <>
       <h3>Reviews</h3>
-      {reviews.length > 0 ? (
+      {record.reviews.length > 0 ? (
         <>
           <div>
             <button onClick={() => setShowReviews(!showReviews)}>

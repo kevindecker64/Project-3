@@ -4,8 +4,6 @@ const BASE_URL = "/api/records";
 
 export function getAll() {
   return sendRequest(BASE_URL);
-
-  // return fetch(BASE_URL).then((res) => res.json());
 }
 
 export function create(record) {
@@ -26,6 +24,4 @@ export function review(review) {
 
 export function getReviews(record) {
   return sendRequest(`${BASE_URL}/${record._id}`);
-
-  // return fetch(`${BASE_URL}/${record._id}`).then((res) => res.json());
 }
