@@ -37,7 +37,3 @@ export function review(review) {
 export function getReviews(record) {
   return fetch(`${BASE_URL}/${record._id}`).then((res) => res.json());
 }
-
-export function checkMatch(record) {
-  return fetch(`${BASE_URL}/checkMatch`).then((res) => res.json());
-}

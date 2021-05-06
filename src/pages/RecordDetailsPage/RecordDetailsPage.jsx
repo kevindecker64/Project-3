@@ -22,7 +22,7 @@ export default function RecordDetailsPage() {
       &nbsp;
       <div>
         <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
-        &nbsp;
+        &nbsp; | &nbsp;
         <Link to="/">RETURN TO LIST</Link>
       </div>
     </>
