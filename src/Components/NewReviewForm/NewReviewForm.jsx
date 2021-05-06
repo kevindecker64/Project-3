@@ -32,7 +32,12 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
   return (
     <>
       <h2>{record.title}</h2>
-      <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+      <form
+        className="form"
+        autoComplete="off"
+        ref={formRef}
+        onSubmit={handleSubmit}
+      >
         <div>
           <label>Stars: </label>
           <input
@@ -56,6 +61,7 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
         <button type="submit" disabled={invalidForm}>
           POST REVIEW
         </button>
+        &nbsp;
       </form>
     </>
   );

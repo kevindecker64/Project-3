@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "./RecordListItem.css";
+
 export default function RecordListItem({ record, handleDeleteRecord, user }) {
   return (
     <>
