@@ -24,7 +24,7 @@ export default function App() {
 
   useEffect(() => {
     history.push("/");
-  }, [records, history]);
+  }, [records, history, user]);
 
   useEffect(() => {
     async function getRecords() {
