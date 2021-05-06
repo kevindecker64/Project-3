@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const recordsCtrl = require("../../controllers/api/records");
 const reviewsCtrl = require("../../controllers/api/reviews");
-const ensureLoggedIn = require("../../config/ensureLoggedIn"); // add to routes that need authorization
-
+const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 router.get("/", recordsCtrl.index);
 router.post("/", ensureLoggedIn, recordsCtrl.create);

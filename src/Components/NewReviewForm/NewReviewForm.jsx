@@ -33,7 +33,7 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
     <>
       <h2>{record.title}</h2>
       <form
-        className="form"
+        className="container"
         autoComplete="off"
         ref={formRef}
         onSubmit={handleSubmit}

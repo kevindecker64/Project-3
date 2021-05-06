@@ -34,7 +34,12 @@ export default function NewRecordForm({ handleAddRecord, user }) {
 
   return (
     <>
-      <form className='form' autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+      <form
+        className="container"
+        autoComplete="off"
+        ref={formRef}
+        onSubmit={handleSubmit}
+      >
         <div>
           <label>Record Title: </label>
           <input

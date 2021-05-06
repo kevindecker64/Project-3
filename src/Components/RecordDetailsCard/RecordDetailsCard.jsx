@@ -24,7 +24,6 @@ export default function RecordDetailsCard({ record }) {
         )}
         &nbsp;
       </div>
-
     </>
   );
 }

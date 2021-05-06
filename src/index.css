@@ -2,7 +2,7 @@
   --white: #ffffff;
   --tan-1: #fbf9f6;
   --tan-2: #e7e2dd;
-  --tan-3: #e2d9d1;
+  --tan-3: #e2d3c6;
   --tan-4: #d3c1ae;
   --orange: #f67f00;
   --text-light: #968c84;
@@ -36,9 +36,12 @@ code {
   height: 100%;
 }
 
-.form {
+.container {
   border: solid black 2px;
   margin: 2px;
+  padding: 4px;
+  border-radius: 10px;
+  background-color: var(--tan-3);
 }
 
 .align-ctr {

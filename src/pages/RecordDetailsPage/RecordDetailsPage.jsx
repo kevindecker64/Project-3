@@ -6,7 +6,7 @@ import ReviewsCard from "../../Components/ReviewsCard/ReviewsCard";
 
 import "./RecordDetailsPage.css";
 
-export default function RecordDetailsPage({user}) {
+export default function RecordDetailsPage({ user }) {
   const {
     state: { record },
   } = useLocation();
@@ -14,7 +14,7 @@ export default function RecordDetailsPage({user}) {
   return (
     <>
       <h1>Record Details</h1>
-      <div className="record-detail-page">
+      <div className="container">
         <RecordDetailsCard record={record} key={record._id} />
         <hr />
         <ReviewsCard record={record} />

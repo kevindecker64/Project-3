@@ -15,12 +15,7 @@ import "./App.css";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [records, setRecords] = useState([]);
-  // const [reviews, setReviews] = useState([]);
   const history = useHistory();
-
-  async function testSomething() {
-    console.log("HEELLLOOOO!!!!!");
-  }
 
   useEffect(() => {
     history.push("/");
@@ -63,43 +58,31 @@ export default function App() {
   return (
     <main className="App">
       <NavBar user={user} setUser={setUser} />
-      {/* {user ? (
-        <> */}
-          <Switch>
-            <Route exact path="/">
-              <RecordIndexPage
-                records={records}
-                handleDeleteRecord={handleDeleteRecord}
-                user={user}
-              />
-            </Route>
-            <Route exact path="/add">
-              <NewRecordPage handleAddRecord={handleAddRecord} user={user} />
-            </Route>
-            <Route exact path="/details">
-              <RecordDetailsPage user={user}/>
-            </Route>
-            <Route exact path="/edit">
-              <EditRecordPage handleUpdateRecord={handleUpdateRecord} />
-            </Route>
-            <Route exact path="/review">
-              <NewReviewPage handleAddReview={handleAddReview} user={user} />
-            </Route>
-
-            {/* Why is the AuthPage not redirecting to index with this set up? */}
-
-            <Route exact path="/authpage">
-              <AuthPage setUser={setUser} />
-            </Route>
-            <Redirect to="/" />
-          </Switch>
-          &nbsp;
-          <hr />
-        {/* </>
-      ) : (
-        <AuthPage exact path="/authpage" setUser={setUser} />
-      )} */}
-      <button onClick={testSomething}>Test Something</button>
+      <Switch>
+        <Route exact path="/">
+          <RecordIndexPage
+            records={records}
+            handleDeleteRecord={handleDeleteRecord}
+            user={user}
+          />
+        </Route>
+        <Route exact path="/add">
+          <NewRecordPage handleAddRecord={handleAddRecord} user={user} />
+        </Route>
+        <Route exact path="/details">
+          <RecordDetailsPage user={user} />
+        </Route>
+        <Route exact path="/edit">
+          <EditRecordPage handleUpdateRecord={handleUpdateRecord} />
+        </Route>
+        <Route exact path="/review">
+          <NewReviewPage handleAddReview={handleAddReview} user={user} />
+        </Route>
+        <Route exact path="/authpage">
+          <AuthPage setUser={setUser} />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
     </main>
   );
 }
