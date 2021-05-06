@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import * as recordsAPI from "../../utilities/records-api";
 
 export default function ReviewsCard({ record }) {
+  const [reviews, setReviews] = useState([]);
+  const [showReviews, setShowReviews] = useState(false);
+
+  useEffect(() => {
+    async function populateReviews() {
+      const populatedRecord = await recordsAPI.getReviews(record);
+      setReviews(populatedRecord.reviews);
+    }
+    populateReviews();
+  }, [record]);
+
   return (
     <>
       <h3>Reviews</h3>
-      {record.ratings.length > 0 ? (
-        record.ratings.map((rating, idx) => <div key={idx}>{rating}</div>)
+      {reviews.length > 0 ? (
+        <button onClick={() => setShowReviews(!showReviews)}>
+          {showReviews ? "Hide" : "Show"}
+        </button>
       ) : (
-        <h3>No Reviews</h3>
+        <div>No Reviews</div>
       )}
+      {showReviews &&
+        reviews.map((review, idx) => (
+          <div key={idx}>
+            <div>{review.userName}</div>
+            <div>Stars: {review.stars}</div>
+            <div>Review: {review.review}</div>
+            &nbsp;
+          </div>
+        ))}
       &nbsp;
     </>
   );

@@ -20,21 +20,12 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-  await Record.findById(req.params.id)
-    .populate("ratings")
+  Record.findById(req.params.id)
+    .populate("reviews")
     .exec(function (err, record) {
-      Review.find({ _id: { $nin: record.ratings } }, function (err, ratings) {
-        console.log(ratings);
-        res.status(200).json();
-      });
+      res.status(200).json(record);
     });
 }
-// async function show(req, res) {
-//   const record = await Record.findById(req.params.id);
-//   record.ratings.populate("Review").exec(function (err) {
-//     res.status(200).json();
-//   });
-// }
 
 async function update(req, res) {
   const updatedRecord = await Record.findByIdAndUpdate(

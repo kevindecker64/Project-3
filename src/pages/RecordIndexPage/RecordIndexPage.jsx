@@ -7,7 +7,14 @@ export default function RecordIndexPage({ records, handleDeleteRecord, user }) {
       <h1>Record Index Page</h1>
 
       {records.length > 0 ? (
-        records.map((record) => <RecordListItem record={record} key={record._id} handleDeleteRecord={handleDeleteRecord} user={user} />)
+        records.map((record) => (
+          <RecordListItem
+            record={record}
+            key={record._id}
+            handleDeleteRecord={handleDeleteRecord}
+            user={user}
+          />
+        ))
       ) : (
         <h2>No Records</h2>
       )}

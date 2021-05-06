@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function RecordListItem({ record, handleDeleteRecord, user }) {
   return (
     <>
-      <div className='record-list-item'>
+      <div className="record-list-item">
         <h2>{record.title}</h2>
         <h3>
           {record.artist} | {record.year}

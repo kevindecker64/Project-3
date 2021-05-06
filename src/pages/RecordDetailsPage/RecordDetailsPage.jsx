@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import RecordDetailsCard from "../../Components/RecordDetailsCard/RecordDetailsCard";
 import ReviewsCard from "../../Components/ReviewsCard/ReviewsCard";
 
-export default function RecordDetailsPage(props) {
+export default function RecordDetailsPage() {
   const {
     state: { record },
   } = useLocation();

@@ -14,7 +14,7 @@ const recordSchema = new Schema({
   price: { type: Number },
   sellerName: { type: String },
   sellerInfo: { email: { type: String }, phoneNum: { type: String } },
-  ratings: [{ type: Schema.Types.ObjectId, ref: "Review" }],
+  reviews: [ {type: Schema.Types.ObjectId, ref: "Review"} ],
 });
 
 module.exports = mongoose.model("Record", recordSchema);

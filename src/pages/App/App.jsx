@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 import * as recordsAPI from "../../utilities/records-api";
-// import * as reviewsAPI from "../../utilities/reviews-api";
 import NavBar from "../../Components/NavBar/NavBar";
 import AuthPage from "../AuthPage/AuthPage";
 import NewRecordPage from "../NewRecordPage/NewRecordPage";
@@ -16,12 +15,11 @@ import "./App.css";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [records, setRecords] = useState([]);
-  const [reviews, setReviews] = useState([]);
+  // const [reviews, setReviews] = useState([]);
   const history = useHistory();
 
   async function testSomething() {
     console.log("HEELLLOOOO!!!!!");
-    console.log(user);
   }
 
   useEffect(() => {
@@ -56,7 +54,10 @@ export default function App() {
 
   async function handleAddReview(newReviewData) {
     const newReview = await recordsAPI.review(newReviewData);
-    setReviews([...reviews, newReview]);
+    const newRecordsArray = records.map((rec) =>
+      rec._id === newReview._id ? newReview : rec
+    );
+    setRecords(newRecordsArray);
   }
 
   return (
@@ -90,7 +91,7 @@ export default function App() {
           <hr />
         </>
       ) : (
-        <AuthPage setUser={setUser} />
+        <AuthPage exact path="/authpage" setUser={setUser} />
       )}
       <button onClick={testSomething}>Test Something</button>
     </main>

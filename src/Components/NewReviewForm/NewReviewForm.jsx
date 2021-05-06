@@ -7,7 +7,7 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
     userName: user.name,
     recordId: record._id,
     recordInfo: { title: record.title, artist: record.artist },
-    rating: 3,
+    stars: 3,
     review: "",
   });
 
@@ -34,13 +34,13 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
       <h2>{record.title}</h2>
       <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
-          <label>Rating: </label>
+          <label>Stars: </label>
           <input
             type="number"
             min="1"
             max="5"
-            name="rating"
-            value={formData.rating}
+            name="stars"
+            value={formData.stars}
             onChange={handleChange}
             required
           />

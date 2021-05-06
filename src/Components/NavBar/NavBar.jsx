@@ -20,15 +20,13 @@ export default function NavBar({ user, setUser }) {
           &nbsp; | &nbsp;
           <span>{user.name}</span>
           &nbsp; | &nbsp;
-          <Link to="" onClick={handleLogOut}>
+          <Link to="/authpage" onClick={handleLogOut}>
             Log Out
           </Link>
         </>
       ) : (
         <>
-          <Link to="" onClick={handleLogOut}>
-            Sign Up / Log In
-          </Link>
+          <Link to="/authpage">Sign Up/Log In</Link>
         </>
       )}
     </nav>
