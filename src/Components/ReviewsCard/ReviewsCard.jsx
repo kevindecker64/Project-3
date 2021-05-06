@@ -17,9 +17,14 @@ export default function ReviewsCard({ record }) {
     <>
       <h3>Reviews</h3>
       {reviews.length > 0 ? (
-        <button onClick={() => setShowReviews(!showReviews)}>
-          {showReviews ? "Hide" : "Show"}
-        </button>
+        <>
+          <div>
+            <button onClick={() => setShowReviews(!showReviews)}>
+              {showReviews ? "Hide" : "Show"}
+            </button>
+          </div>
+          &nbsp;
+        </>
       ) : (
         <div>No Reviews</div>
       )}
