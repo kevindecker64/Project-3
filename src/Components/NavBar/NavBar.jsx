@@ -26,7 +26,7 @@ export default function NavBar({ user, setUser }) {
         </>
       ) : (
         <>
-          <Link to="/authpage">Sign Up/Log In</Link>
+          <Link to="/authpage">SignUp/LogIn</Link>
         </>
       )}
     </nav>

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import RecordDetailsCard from "../../Components/RecordDetailsCard/RecordDetailsCard";
 import ReviewsCard from "../../Components/ReviewsCard/ReviewsCard";
 
-import './RecordDetailsPage.css'
+import "./RecordDetailsPage.css";
 
-export default function RecordDetailsPage() {
+export default function RecordDetailsPage({user}) {
   const {
     state: { record },
   } = useLocation();
@@ -21,8 +21,12 @@ export default function RecordDetailsPage() {
       </div>
       &nbsp;
       <div>
-        <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
-        &nbsp; | &nbsp;
+        {user && (
+          <>
+            <Link to={{ pathname: "/review", state: { record } }}>REVIEW</Link>
+            &nbsp; | &nbsp;
+          </>
+        )}
         <Link to="/">RETURN TO LIST</Link>
       </div>
     </>
