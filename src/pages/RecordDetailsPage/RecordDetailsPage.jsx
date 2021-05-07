@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import RecordDetailsCard from "../../Components/RecordDetailsCard/RecordDetailsCard";
 import ReviewsCard from "../../Components/ReviewsCard/ReviewsCard";
 
-import "./RecordDetailsPage.css";
-
 export default function RecordDetailsPage({ user }) {
   const {
     state: { record },
@@ -19,7 +17,6 @@ export default function RecordDetailsPage({ user }) {
         <hr />
         <ReviewsCard record={record} />
       </div>
-      &nbsp;
       <div>
         {user && (
           <>

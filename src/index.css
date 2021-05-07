@@ -1,10 +1,9 @@
 :root {
   --white: #ffffff;
-  --tan-1: #fbf9f6;
-  --tan-2: #e7e2dd;
-  --tan-3: #e2d3c6;
-  --tan-4: #d3c1ae;
-  --orange: #f67f00;
+  --blue-1: #bcdbff;
+  --blue-2: #84aff0;
+  --green: #08ac1e;
+  --red: #c70000;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -18,92 +17,29 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--blue-2);
   padding: 2vmin;
   height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-#root {
-  height: 100%;
-}
-
 .container {
-  border: solid black 2px;
-  margin: 2px;
-  padding: 4px;
-  border-radius: 10px;
-  background-color: var(--tan-3);
-}
-
-.align-ctr {
-  text-align: center;
-}
-
-.align-rt {
-  text-align: right;
-}
-
-.smaller {
-  font-size: smaller;
-}
-
-.flex-ctr-ctr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-j-end {
-  justify-content: flex-end;
-}
-
-.scroll-y {
-  overflow-y: scroll;
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: 0.1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: 0.6vmin;
-  text-align: center;
-  font-size: 2vmin;
-}
-
-.form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: 0.1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-}
-
-p.error-message {
-  color: var(--orange);
-  text-align: center;
+  border: solid black 3px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: var(--blue-1);
 }
 
 form {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 1.25vmin;
-  color: var(--text-light);
+  color: var(--text-dark);
 }
 
 label {
@@ -115,7 +51,7 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: 0.1vmin solid var(--tan-3);
+  border: 0.1vmin solid var(--blue-2);
   border-radius: 0.5vmin;
   color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
@@ -123,7 +59,7 @@ input {
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: var(--green);
 }
 
 button,
@@ -131,34 +67,53 @@ a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--green);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: 0.1vmin solid var(--tan-2);
+  border: 0.1vmin solid var(--blue-2);
   border-radius: 0.5vmin;
   outline: none;
   cursor: pointer;
 }
 
-button.btn-sm {
-  font-size: 1.5vmin;
-  padding: 0.6vmin 0.8vmin;
-}
-
-button.btn-xs {
-  font-size: 1vmin;
-  padding: 0.4vmin 0.5vmin;
+.delete-btn {
+  margin: 1vmin;
+  padding: 1vmin;
+  color: var(--white);
+  background-color: var(--red);
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: 0.1vmin solid var(--blue-2);
+  border-radius: 0.5vmin;
+  outline: none;
+  cursor: pointer;
 }
 
 button:disabled,
 form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: var(--blue-2);
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+
+p.error-message {
+  color: var(--red);
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+#root {
+  height: 100%;
 }

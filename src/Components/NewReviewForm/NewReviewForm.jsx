@@ -31,7 +31,7 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
 
   return (
     <>
-      <h2>{record.title}</h2>
+      <h2>{record.title} by {record.artist}</h2>
       <form
         className="container"
         autoComplete="off"
@@ -61,7 +61,6 @@ export default function NewReviewForm({ handleAddReview, user, record }) {
         <button type="submit" disabled={invalidForm}>
           POST REVIEW
         </button>
-        &nbsp;
       </form>
     </>
   );

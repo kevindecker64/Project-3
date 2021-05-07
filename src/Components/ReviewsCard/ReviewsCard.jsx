@@ -37,7 +37,6 @@ export default function ReviewsCard({ record }) {
             &nbsp;
           </div>
         ))}
-      &nbsp;
     </>
   );
 }

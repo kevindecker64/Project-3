@@ -114,7 +114,6 @@ export default function NewRecordForm({ handleAddRecord, user }) {
         <button type="submit" disabled={invalidForm}>
           POST RECORD
         </button>
-        &nbsp;
       </form>
     </>
   );

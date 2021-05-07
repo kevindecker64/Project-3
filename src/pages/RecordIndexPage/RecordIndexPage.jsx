@@ -4,7 +4,7 @@ import RecordListItem from "../../Components/RecordListItem/RecordListItem";
 export default function RecordIndexPage({ records, handleDeleteRecord, user }) {
   return (
     <>
-      <h1>Record Index Page</h1>
+      <h1>All Records</h1>
 
       {records.length > 0 ? (
         records.map((record) => (

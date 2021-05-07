@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./RecordListItem.css";
-
 export default function RecordListItem({ record, handleDeleteRecord, user }) {
   return (
     <>
@@ -27,13 +25,12 @@ export default function RecordListItem({ record, handleDeleteRecord, user }) {
               &nbsp; | &nbsp;
               <Link to={{ pathname: "/edit", state: { record } }}>EDIT</Link>
               &nbsp; | &nbsp;
-              <button onClick={() => handleDeleteRecord(record._id)}>
+              <button className="delete-btn" onClick={() => handleDeleteRecord(record._id)}>
                 DELETE
               </button>
             </>
           )}
         </div>
-        &nbsp;
       </div>
     </>
   );

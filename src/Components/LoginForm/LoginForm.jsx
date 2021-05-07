@@ -29,7 +29,7 @@ export default function LogIn({ setUser }) {
 
   return (
     <div>
-      <div className="form-container" onSubmit={handleSubmit}>
+      <div className="container" onSubmit={handleSubmit}>
         <form autoComplete="off">
           <label>Email</label>
           <input

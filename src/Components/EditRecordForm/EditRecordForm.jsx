@@ -27,7 +27,7 @@ export default function EditRecordForm({ handleUpdateRecord }) {
 
   return (
     <>
-      <form autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
+      <form className="container" autoComplete="off" ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label>Record Title: </label>
           <input
