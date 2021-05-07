@@ -83,6 +83,7 @@ export default function App() {
         </Route>
         <Redirect to="/" />
       </Switch>
+      &nbsp;
     </main>
   );
 }

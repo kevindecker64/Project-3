@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Swap-O-Record
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Swap-O-record is a marketplace and review board for vinyl records.  Have record you want to sell, go ahead and post it.  Have an opinion on a record that is for sale, go ahead and leave a review.  It might just help make somebody decide if they should buy it or not.  Not looking to sell, but got a record in your collection that you want to brag about, that's cool too.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## In Action
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Any body can browse the records and see the reviews.
+<img src="./imgs/landing-page-guest.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- But if you want to post your own records or leave reviews you will need to sign up.
+<img src="./imgs/login-page.png">
 
-### `npm test`
+- Now you can post records fo your own.
+<img src="./imgs/record-new-page.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Or review records that are for sale.
+<img src="./imgs/review-new-page.png">
 
-### `npm run build`
+- An interactive community can really help when making the decision, "To buy, or not to buy?" (Did you know that Shakespeare came up with that line from Hamlet while he was pondering whether or not to add another record to his collection?).
+<img src="./imgs/details-page.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- You can delete any record that you have posted, either when it is sold or if you decide you cannot part with it after all.
+<img src="./imgs/landing-page-user.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+Swap-O-Record is made in the MERN full-stack:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Mongoose/MongoDB, Express, React, Node.js
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Check it out
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Click here](https://swap-o-record.herokuapp.com/) to check it out and join the community.
 
-## Learn More
+Take a look at the progress of future plans [here](https://trello.com/b/4a0dc0x7/swap-o-record).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Next Steps
 
-### Code Splitting
+Future advancements I plan on making include:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Allow users to upload images of the records they are posting.
+2. Consume a 3rd party API to allow for previewing records before purchasing.
+3. Create sorting functionality for easier browsing of posted records.
